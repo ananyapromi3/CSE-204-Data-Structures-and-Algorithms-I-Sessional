@@ -197,7 +197,7 @@ public:
             count++;
         }
         return -1;
-    } // O(1)
+    } // O(n)
 
     void clear()
     {

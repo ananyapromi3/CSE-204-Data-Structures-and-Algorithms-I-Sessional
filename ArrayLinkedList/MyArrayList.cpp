@@ -9,14 +9,14 @@ class MyList : public List<dataType>
     void increaseCapacity()
     {
         dataType *tempArray;
-        tempArray = new dataType[this->capacity];
+        tempArray = new dataType[this->length];
         for (int i = 0; i < this->length; i++)
         {
             tempArray[i] = arr[i];
         }
         delete[] arr;
         this->capacity *= 2;
-        arr = new dataType[this->length + 1];
+        arr = new dataType[this->capacity];
         for (int i = 0; i < this->length; i++)
         {
             arr[i] = tempArray[i];
@@ -27,7 +27,7 @@ class MyList : public List<dataType>
     void decreaseCapacity()
     {
         dataType *tempArray;
-        tempArray = new dataType[this->length + 1];
+        tempArray = new dataType[this->length];
         for (int i = 0; i < this->length; i++)
         {
             tempArray[i] = arr[i];
@@ -153,6 +153,7 @@ public:
         }
         return -1;
     } // O(n)
+    
     void clear()
     {
         if (this->length > 0)

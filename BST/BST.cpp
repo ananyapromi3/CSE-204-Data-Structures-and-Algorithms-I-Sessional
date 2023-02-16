@@ -78,46 +78,35 @@ class BST
         }
     }
 
-public:
-    BST()
-    {
-        root = NULL;
-    }
-
-    ~BST()
-    {
-        delete root;
-    }
-
     bool ifBalanced(Node *node)
     {
-        if(node == NULL)
+        if (node == NULL)
         {
             return true;
         }
-        if(!node->rightChild && !node->leftChild)
+        if (!node->rightChild && !node->leftChild)
         {
             return true;
         }
-        if(!node->rightChild)
+        if (!node->rightChild)
         {
-            if(!node->leftChild->rightChild && !node->leftChild->leftChild)
+            if (!node->leftChild->rightChild && !node->leftChild->leftChild)
             {
                 return true;
             }
             return false;
         }
-        if(!node->leftChild)
+        if (!node->leftChild)
         {
-            if(!node->rightChild->rightChild && !node->rightChild->leftChild)
+            if (!node->rightChild->rightChild && !node->rightChild->leftChild)
             {
                 return true;
             }
             return false;
         }
-        if(abs(depth(node->rightChild)-depth(node->leftChild))<=1)
+        if (abs(depth(node->rightChild) - depth(node->leftChild)) <= 1)
         {
-            if(ifBalanced(node->rightChild) && ifBalanced(node->rightChild))
+            if (ifBalanced(node->rightChild) && ifBalanced(node->rightChild))
             {
                 return true;
             }
@@ -130,6 +119,17 @@ public:
         {
             return false;
         }
+    }
+
+public:
+    BST()
+    {
+        root = NULL;
+    }
+
+    ~BST()
+    {
+        delete root;
     }
 
     bool checkBalance()
@@ -229,7 +229,7 @@ public:
         }
         Node *temp;
         temp = root;
-        if(this->root->getValue() == value && !this->root->rightChild && !this->root->leftChild)
+        if (this->root->getValue() == value && !this->root->rightChild && !this->root->leftChild)
         {
             this->root = NULL;
             return 1;
